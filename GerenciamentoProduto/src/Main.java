@@ -1,70 +1,47 @@
+//MAIN
+
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        GerenciamentoProduto glivros = new GerenciamentoProduto();
+
+        GerenciadorProduto gProdutos = new GerenciadorProduto();
         boolean continuarRodando = true;
 
-        System.out.println("Bem-vindo ao sistema de gerenciamento de livros");
         do {
-            System.out.println("[1] -  Cadastrar Livro");
-            System.out.println("[2] -  Listar Livros");
-            System.out.println("[3] -  Atualizar Livro");
-            System.out.println("[4] -  Deletar Livro");
-            System.out.println("[0] -  Sair do programa");
-
-            System.out.println("informe uma opção do menu: ");
+            System.out.println("Escolha a operação desejada: ");
+            System.out.println("[1] Cadastrar Produto  |  [2] Listar Produto");
+            System.out.println("[3] Atualizar Produto  |  [4] Deletar Produto");
+            System.out.print("[0] Sair do Programa   :  ");
             int opcaoUsuario = sc.nextInt();
 
-            switch (opcaoUsuario) {
+            switch (opcaoUsuario){
                 case 1:
-                    sc.nextLine(); //limpar o cache do nextline Buffer
-                    System.out.println("\nCADASTRO DE LIVROS");
-                    System.out.println("Informe o nome do livro: ");
-                    String nomeLivro = sc.nextLine();
-
-                    glivros.CadastrarLivro(nomeLivro);
+                    sc.nextLine(); // Limpar o cache do nextLine buffer
+                    System.out.println("C A D A S T R O   D E   P R O D U T O S");
+                    System.out.print("Informe o nome do livro: ");
+                    String nomeProduto = sc.nextLine();
+                    gProdutos.CadastrarProduto(nomeProduto);
                     break;
                 case 2:
-                    glivros.ListarLivro();
+                    System.out.println("L I S T A   D E   P R O D U T O S");
+                    gProdutos.ListarProduto();
                     break;
-                case 3:
-                    //1. etapa -> exibir livros
-                    glivros.ListarLivro();
-                    sc.nextLine();
 
-                    //2. declarar o livro a ser atualizado
-                    System.out.print("\nInforme o número do livro que deseja atualizar: ");
-                    int indice = sc.nextInt();
-                    sc.nextLine();
-
-                    //3. Informar o nome do livro
-                    System.out.println("\nInforme o nome do novo livro:");
-                    String novoNome = sc.nextLine();
-
-                    //4. chamada do método para atualizar (índice, novo nome do livro)
-                    glivros.AtualizarLivros(indice - 1, novoNome);
-
-                    break;
-                case 4:
-                    glivros.DeletarLivros();
-                    System.out.println("\nLivros deletados com sucesso!\n");
-                    break;
                 case 0:
+                    System.out.println("P R O G R A M A   E N C E R R A D O");
                     continuarRodando = false;
-                    System.out.println("\nObrigado por usar o programa!");
                     break;
-
-
-
-
-
+                default:
+                    System.out.println("Operação inválida.");
+                    break;
 
             }
-        } while (continuarRodando);
 
+
+        } while (continuarRodando);
     }
 }
