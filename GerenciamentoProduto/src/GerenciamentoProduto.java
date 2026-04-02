@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GerenciamentoProduto {
+public class GerenciadorProduto {
 
     ArrayList<String> listaLivros = new ArrayList<>();
 
-    public void CadastrarLivro(String nomeLivro) {
+    public void CadastrarProduto(String nomeLivro) {
         try {
             listaLivros.add(nomeLivro);
             System.out.printf("O livro: %s foi cadastrado com sucesso!\n", nomeLivro);
@@ -15,7 +15,7 @@ public class GerenciamentoProduto {
 
     }
 
-    public void ListarLivro() {
+    public void ListarProduto() {
         System.out.println("Livros cadastrados: ");
 
         for (int i = 0; i < listaLivros.size(); i++) {
@@ -25,7 +25,7 @@ public class GerenciamentoProduto {
 
     }
 
-    public void AtualizarLivros(int posicao, String novoNome) {
+    public void AtualizarProduto(int posicao, String novoNome) {
 
         if (posicao < 0 || posicao >= listaLivros.size()) {
             System.out.println("Indice invalido");
@@ -42,7 +42,7 @@ public class GerenciamentoProduto {
 
     }
 
-    public void DeletarLivros() {
+    public void DeletarProduto() {
         listaLivros.clear();
     }
 
